@@ -2,16 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>database</title>
 </head>
 <body>
     <?php
         $success = $_POST['CollectSuccess'];
         $umbrella_num = $_POST['CurrentInput'];
         $phone_num = $_POST['UserIdentifier'];
-        if (!isset($umbrella_num)){
-            $phone_num = 300;
-        }
         $location = $_POST['CollectName'];
         if ($success){
             $mysqli = new mysqli('localhost', 'umma', 'umma2020', 'umma');
@@ -46,4 +43,5 @@
             }
         }
     ?>
-    
+    </body>
+</html>    

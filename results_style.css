@@ -1,0 +1,14 @@
+table {
+    border-collapse: separate;
+    width: 80%;
+}  
+tr:nth-child(odd) td {
+    margin-left: 10px;
+    background-color:lightgoldenrodyellow;
+}
+tr:nth-child(even) td {
+    background-color:white;
+}
+tr{
+    text-align: right;
+}
