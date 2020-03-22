@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" style="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,13 +6,24 @@
     <link rel="stylesheet" type="text/css" href="results_style.css"/>
 </head>
 <body>
+<h2>Umbrellas Available:</h2>
+    <?php 
+    $mysqli = new mysqli('localhost', 'umma', 'umma2020', 'umma');
+    if ($mysqli->connect_errno) {
+        printf("Connect failed: %s\n", $mysqli->connect_error);
+        exit();
+    }
+    $sql3 = $mysqli->prepare("SELECT count(*) FROM umbrellas where returned = false && umbrella_num <= 16 && umbrella_num>0"); //Counts number of umbrellas rented out
+    $sql3->execute();
+    $sql3->bind_result($umbrellas_rented);
+    while ($sql3->fetch()){
+        echo ("<h2>".(16-$umbrellas_rented)."</h2>");
+    }
+    $sql3->close();
+    ?>
     <h1> Umma Log</h1>
     <?php
-        $mysqli = new mysqli('localhost', 'umma', 'umma2020', 'umma');
-        if ($mysqli->connect_errno) {
-            printf("Connect failed: %s\n", $mysqli->connect_error);
-            exit();
-        }
+        
         $sql = "SELECT `id`,`time`,`umbrella_num`,`phone_num`, `location`, `returned` FROM `umbrellas` WHERE umbrella_num <= 16 && umbrella_num > 0 ORDER BY `time`";
         $results = mysqli_query($mysqli,$sql);
         echo "<table>"; //begin table tag...
@@ -71,8 +82,6 @@
             echo "<td>" . $rowitem2['location'] . "</td>";
             echo "</tr>";
         }
-
     ?>
-    
     </body>
 </html>    

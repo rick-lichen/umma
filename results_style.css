@@ -1,6 +1,9 @@
 table {
     border-collapse: separate;
     width: 80%;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
 }  
 tr:nth-child(odd) td {
     margin-left: 10px;
@@ -11,4 +14,12 @@ tr:nth-child(even) td {
 }
 tr{
     text-align: right;
+}
+html{
+    background-image: url('https://drive.google.com/thumbnail?id=1kAHr1NS1WhrUr3NWHoGzhwEEKLKOvYU0');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center right;
+    background-size: 10%;
+    background-color: antiquewhite;
 }
