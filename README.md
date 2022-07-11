@@ -1,2 +1,2 @@
 # umma
-umma sms
+Custom simple backend for Umma (umbrella sharing) SMS prototype. Integration with Twilio
